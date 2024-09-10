@@ -32,4 +32,19 @@ const sayHello = document.getElementById("btnHello");
 //         .then(response => console.log('Success!', response))
 //         .catch(error => console.error('Error!', error.message))
 //     })
+ // Function to initialize or update the counter
+        function updateCounter() {
+            // Get the current count from localStorage or initialize it to 0
+            let count = localStorage.getItem('visitorCount') || 0;
+            count = parseInt(count) + 1; // Increment the count by 1
+
+            // Update the display element with the new count
+            document.getElementById('visitor-counter').innerText = count;
+
+            // Store the updated count back to localStorage
+            localStorage.setItem('visitorCount', count);
+        }
+
+        // Call the function when the page loads
+        updateCounter();
 
